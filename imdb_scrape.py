@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 
-import sys, re, requests, random, time, lxml.html
+#
+# Download and parse random movie titles, summaries, genres, and content rating from IMDB
+#
+# Usage: python imdb_scrape.py INPUT_FILE OUTPUT_FILE NUM_MOVIES
+#  INPUT_FILE - IMDB TSV data, found here: https://datasets.imdbws.com/title.basics.tsv.gz
+#  OUTPUT_FILE - File to write data to
+#  NUM_MOVIES - Number of random movies to parse
+#
+
+import sys, requests, random, time, lxml.html
 
 
 def ascii_only(s):
@@ -29,7 +38,6 @@ def main():
 			page = None
 			while page is None:
 				try:
-					# time.sleep(0.5)
 					page = requests.get('http://www.imdb.com/title/%s' % id, stream = False, timeout = 1.0)
 				except requests.exceptions.Timeout as ex:
 					print 'Timeout Error: %s\nRetrying...' % str(ex)
