@@ -3,7 +3,7 @@
 #
 # Download and parse all Jake and Amir episode titles and scripts from scripts.jakeandamir.com
 #
-# Usage: python imdb_scrape.py OUTPUT_FILE
+# Usage: python jake_amir_scrape.py OUTPUT_FILE
 #  OUTPUT_FILE - File to write scripts to
 #
 
